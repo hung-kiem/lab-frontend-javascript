@@ -80,3 +80,8 @@ var coinHandler = function (accumulator, currentValue, currentIndex, originArray
 
 var totalCoins = courses.reduce(coinHandler, 10);
 console.log(totalCoins)
+
+var totalCoin = courses.reduce(function (total, course, index) {
+   console.log(index, course);
+    return total + course.coin;
+})

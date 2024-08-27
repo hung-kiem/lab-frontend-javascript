@@ -31,9 +31,9 @@ courses.forEach(function (course, index) {
 // viet ham foreach2
 Array.prototype.forEach2 = function (callback) {
     if (typeof callback === 'function') {
-        for (var i in this) {
-            if (this.hasOwnProperty(i)) {
-                callback(this[i], i);
+        for (var index in this) {
+            if (this.hasOwnProperty(index)) {
+                callback(this[index], index);
             }
         }
     }

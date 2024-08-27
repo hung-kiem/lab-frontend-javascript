@@ -23,7 +23,9 @@ var courses = [
 ]
 
 // Ham some build-in
+courses.length = 100000;
 var hasFree = courses.some(function (course, index) {
+    console.log('course: ');
     return course.coin === 0;
 })
 console.log('hasFree: ' + hasFree)
@@ -32,9 +34,9 @@ console.log('hasFree: ' + hasFree)
 // Ham some2
 Array.prototype.some2 = function (callback) {
     if (typeof callback === 'function') {
-        var arrayLength = this.length;
-        for (var i = 0; i < arrayLength; i++) {
-            if (callback(this[i], i)) return true;
+        for (var index in this) {
+            if (!this.hasOwnProperty(index)) continue;
+            if (callback(this[index], index)) return true;
         }
         return false;
     }

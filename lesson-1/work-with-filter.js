@@ -33,11 +33,13 @@ freeCourses.forEach(function (course) {
 
 // Ham filter2
 Array.prototype.filter2 = function (callback) {
-    var output = [], arrayLength = this.length;
+    var output = [];
     if (typeof callback === 'function') {
-        for (var i = 0; i < arrayLength; i++) {
-            if (callback(this[i], i)) {
-                output.push(this[i]);
+        for (var index in this) {
+            if (this.hasOwnProperty(index)) {
+                if (callback(this[index], index)) {
+                    output.push(this[index]);
+                }
             }
         }
     }

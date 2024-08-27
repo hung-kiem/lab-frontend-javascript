@@ -23,7 +23,9 @@ var courses = [
 ]
 
 // Ham find build-in
+courses.length = 100000;
 var freeCourse = courses.find(function (course, index, originArray) {
+    console.log('course: ');
     return course.coin === 0;
 })
 console.log('freeCourse: ');
@@ -31,11 +33,12 @@ console.log(freeCourse);
 
 // Ham find2
 Array.prototype.find2 = function (callback) {
-    var output = null, arrayLength = this.length;
+    var output = null;
     if (typeof callback === 'function') {
-        for (var i = 0; i < arrayLength; i++) {
-            if (callback(this[i], i, this)) {
-                output = this[i];
+        for (var index in this) {
+            if (!this.hasOwnProperty(index)) continue;
+            if (callback(this[index], index, this)) {
+                output = this[index];
                 break;
             }
         }

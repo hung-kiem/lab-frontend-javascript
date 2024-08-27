@@ -24,7 +24,9 @@ var courses = [
 
 // ham every build-in
 
+courses.length = 100000;
 var isAllFree = courses.every(function (course, index) {
+    console.log(course);
     return course.coin === 0;
 })
 console.log('isAllFree: ' + isAllFree);
@@ -33,9 +35,9 @@ console.log('isAllFree: ' + isAllFree);
 // ham every2 build-in
 Array.prototype.every2 = function (callback) {
     if (typeof callback === 'function') {
-        var arrayLength = this.length;
-        for (var i = 0; i < arrayLength; i++) {
-            if (!callback(this[i], i)) return false;
+        for (var index in this) {
+            if (!this.hasOwnProperty(index)) continue;
+            if (!callback(this[index], index)) return false;
         }
         return true;
     }

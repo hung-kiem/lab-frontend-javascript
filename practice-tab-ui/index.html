@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="main.css"></script>
+    <link href="main.css" rel="stylesheet" />
     <script src="main.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
@@ -52,5 +52,31 @@
         </div>
     </div>
 </div>
+
+<script>
+    const $ = document.querySelector.bind(document);
+    const $$ = document.querySelectorAll.bind(document);
+
+    const tabItems = $$(".tab-item");
+    const tabPanes = $$(".tab-pane");
+    const line = $(".tabs .line");
+    const tabActive = $(".tab-item.active");
+    line.style.left = tabActive.offsetLeft + 'px';
+    line.style.width = tabActive.offsetWidth + 'px';
+
+    tabItems.forEach((tab, index) => {
+        const pane = tabPanes[index];
+        tab.onclick = () => {
+            $(".tab-item.active").classList.remove("active");
+            tab.classList.add("active");
+
+            $(".tab-pane.active").classList.remove("active");
+            pane.classList.add("active");
+
+            line.style.left = tab.offsetLeft + 'px';
+            line.style.width = tab.offsetWidth + 'px';
+        }
+    })
+</script>
 </body>
 </html>

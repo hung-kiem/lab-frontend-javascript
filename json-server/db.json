@@ -1,0 +1,22 @@
+{
+  "courses": [
+    {
+      "id": 1,
+      "name": "React",
+      "price": 100,
+      "author": "John Doe"
+    },
+    {
+      "id": 2,
+      "name": "Angular",
+      "price": 200,
+      "author": "Jane Doe"
+    },
+    {
+      "id": 3,
+      "name": "Vue",
+      "price": 300,
+      "author": "John Doe"
+    }
+  ]
+}
